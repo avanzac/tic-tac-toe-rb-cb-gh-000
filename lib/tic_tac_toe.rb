@@ -115,3 +115,15 @@ def winner(board)
     end
   end
 end
+
+def play(board)
+  until over?(board) == true
+    turn(board)
+  end
+
+  if won?(board)
+    puts "Well Done #{winner(board)}"
+  elsif draw?(board)
+    puts "Even Stevens!"
+  end
+end
