@@ -1,3 +1,14 @@
+WIN_COMBINATIONS = [
+  [0,1,2], # top row
+  [3,4,5], # middle row
+  [6,7,8], # bottom row
+  [0,3,6], # left column
+  [1,4,7], # middle column
+  [2,5,8], # right column
+  [0,4,8], # diagonal a
+  [2,4,6] # diagonal b
+]
+
 def display_board(board)
    puts " #{board[0]} | #{board[1]} | #{board[2]} "
    puts "-----------"
@@ -47,21 +58,10 @@ def turn(board)
      player_token = current_player(board)
      move(board, index, player_token)
      display_board(board)
-   end
+   else
   turn(board)
 end
-
-# Define your WIN_COMBINATIONS constant
-WIN_COMBINATIONS = [
-  [0,1,2], # top row
-  [3,4,5], # middle row
-  [6,7,8], # bottom row
-  [0,3,6], # left column
-  [1,4,7], # middle column
-  [2,5,8], # right column
-  [0,4,8], # diagonal a
-  [2,4,6] # diagonal b
-]
+end
 
 def won?(board)
   WIN_COMBINATIONS.each {| win_combination |
