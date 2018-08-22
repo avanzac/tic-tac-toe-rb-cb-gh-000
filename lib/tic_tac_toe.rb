@@ -19,6 +19,13 @@ def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
 
+def valid_move?(board, index)
+     if index.between?(0,8) && !position_taken?(board, index)
+       return true
+     end
+   end
+
+
 # Define your WIN_COMBINATIONS constant
 WIN_COMBINATIONS = [
   [0,1,2], # top row
