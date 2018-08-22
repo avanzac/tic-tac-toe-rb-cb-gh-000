@@ -10,8 +10,8 @@ def input_to_index(user_input)
       user_input.to_i - 1
     end
 
-def move(board, index, player)
-       board[index] = player
+def move(board, index, current_player)
+       board[index] = current_player
      end
 
 # Helper Method
@@ -44,10 +44,11 @@ def turn(board)
   user_input = gets.chomp
   index = input_to_index(user_input)
   if valid_move?(board, index)
-     move(board, index)
-     turn(board)
+     player_token = current_player(board)
+     move(board, index, player_token)
+     display_board(board)
    end
-  display_board(board)
+  turn(board)
 end
 
 # Define your WIN_COMBINATIONS constant
